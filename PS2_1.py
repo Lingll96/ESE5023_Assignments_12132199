@@ -43,8 +43,10 @@ def CountEq_LargestEq(country, database):
     count = data_country['Country'].count()
     # get the date of largest earthquake
     country_max = data_country['Mag'].max()
-    date = data_country[['Year', 'Mag']][data_country['Mag'] == country_max]
-    return count, date['Year'].values
+    date = data_country[['Year', 'Mo', 'Dy', 'Mag']][data_country['Mag'] == country_max]
+    date[date.isna()] = -9999
+    date['Date'] = date['Year'].astype('int32').astype('str') + '-' + date['Mo'].astype('int32').astype('str') + '-' + date['Dy'].astype('int32').astype('str')
+    return count, date['Date'].values
     
 # define ID    
 i = 0
