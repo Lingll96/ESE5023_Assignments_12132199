@@ -61,5 +61,5 @@ for s in eqd['Country']:
 ld_copy = ld.drop_duplicates(['Country'])  
 # report the results in a descending order
 ld_order = ld_copy.sort_values("Count", ascending=False)
-ld_order.to_excel("Country's earthquake data.xlsx", index=False)
+ld_order.to_excel("Chart 1.xlsx", index=False)
 
