@@ -19,7 +19,7 @@ module Solar_hour_angle
   subroutine get_sha
 
 ! Calculate the LST
-    LST = ho + mi/60
+    LST = ho + real(mi)/60
 
 ! Calculate EOT
     gama = (floor(d) - 1 + (ho - 12)/24)*2*pi/365.0

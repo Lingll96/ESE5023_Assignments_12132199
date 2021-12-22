@@ -47,13 +47,15 @@ implicit none
     enddo
 
 ! Get the d
-    d = ds(mo-1) + da + real(ho)/24 + real(mi)/(24*60) - 1
+     d = ds(mo-1) + da
+!    d = ds(mo-1) + da + real(ho)/24 + real(mi)/(24*60) - 1
 
   end subroutine get_d
 
 ! Calculate the declination angle
   subroutine dec_ang
-    sda = asin(sin((-23.44)*pi/180)*cos((360*(d + 10)*pi/(180*365.24)) + 360*0.0167*sin(360*(d - 2)*pi/(365.24*180))/pi))
+    sda = asin(sin((-23.44)*pi/180.0)*cos((360.0*(real(d) + 10.0)*pi/(180.0*365.24)) + &
+              &360.0*0.0167*sin(360.0*(real(d) - 2.0)*pi/(365.24*180.0))/180))
   end subroutine dec_ang
 
 end module Declination_angle
