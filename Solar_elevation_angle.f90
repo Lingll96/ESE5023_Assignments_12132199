@@ -5,7 +5,7 @@ use Solar_hour_angle
 
 implicit none
 
-! SEA_a is angle format
+! SEA_a is degree format
 real(8) :: lat, SEA
 
 ! Given the time
